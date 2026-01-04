@@ -1,5 +1,5 @@
 // Date 22/12/2025
-// File Chapter2.7.cpp
+// File Chapter2.07.cpp
 // Exercises
 
 // [9] Write a program that converts strings of numbers ("one", "two", etc.) into the int value of that number and outputs it.

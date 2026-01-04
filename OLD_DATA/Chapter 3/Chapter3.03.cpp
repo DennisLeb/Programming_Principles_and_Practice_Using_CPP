@@ -1,5 +1,5 @@
 // 25/12/2025
-// Chapter3.3.cpp
+// Chapter3.03.cpp
 // Exercises
 
 // [4] Read a sequence of doubles into a vector. Think of each input as the distance between two cities. Output total distance, smallest and greatest distance, as well as mean (average) distance between two cities.

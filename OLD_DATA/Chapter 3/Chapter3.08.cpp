@@ -1,5 +1,5 @@
 // 26/12/2025
-// Chapter3.8.cpp
+// Chapter3.08.cpp
 // Exercises
 
 // [9] Write a program to calculate how many times you need to double the number 1 to reach at least 1.000, 1.000.000 and 1.000.000.000.

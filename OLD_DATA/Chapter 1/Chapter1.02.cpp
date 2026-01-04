@@ -1,5 +1,5 @@
 // Date 19/12/2025
-// File Chapter1.2.cpp
+// File Chapter1.02.cpp
 //
 
 // [2] Write a list of instructions for a computer to find the upstairs bathroom

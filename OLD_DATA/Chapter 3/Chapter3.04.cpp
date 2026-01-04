@@ -1,5 +1,5 @@
 // 25/12/2025
-// Chapter3.4.cpp
+// Chapter3.04.cpp
 // Exercises
 
 // [5] Write a program to play a numbers guessing game. The user thinks of a number between 1 and 100 and the program will ask questions until it guesses correctly. It should be able to do this with no more than 7 questions.

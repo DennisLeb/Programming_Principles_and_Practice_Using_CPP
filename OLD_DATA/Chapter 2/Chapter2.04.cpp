@@ -1,5 +1,5 @@
 // Date 22/12/2025
-// File Chapter2.4.cpp
+// File Chapter2.04.cpp
 // Exercises
 
 // [6] Write a program that takes in three whole numbers and puts them back out sorted numerically.

@@ -1,5 +1,5 @@
 // Date 22/12/2025
-// File Chapter2.8.cpp
+// File Chapter2.08.cpp
 // Exercises
 
 // [11] Write a program that prompts the user about every coin type they have, then output each of those as well as their total sum.

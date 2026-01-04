@@ -1,5 +1,5 @@
 // Date 22/12/2025
-// File Chapter2.2.cpp
+// File Chapter2.02.cpp
 // Exercises
 
 // [3] Write a program that declares variables with some legal and some illegal names and watch your compiler react.

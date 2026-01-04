@@ -1,5 +1,5 @@
 // 26/12/2025
-// Chapter3.6.cpp
+// Chapter3.06.cpp
 // Exercises
 
 // [7] Make a vector that holds the spelled-out numbers from 1 to 9 as strings. Write a program that converts the input of a number as an int to its string and vice versa.

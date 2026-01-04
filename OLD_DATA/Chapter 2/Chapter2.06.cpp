@@ -1,5 +1,5 @@
 // Date 22/12/2025
-// File Chapter2.6.cpp
+// File Chapter2.06.cpp
 // Exercises
 
 // [8] Write a program to test whether an input integer value is even or odd.

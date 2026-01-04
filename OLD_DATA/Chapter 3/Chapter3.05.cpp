@@ -1,5 +1,5 @@
 // 25/12/2025
-// Chapter3.5.cpp
+// Chapter3.05.cpp
 // Exercises
 
 // [6] Write a program that performs as a very simple calculator. It should take three arguments from the user: two double values as operands and one of the four basic arithmetic operators.           

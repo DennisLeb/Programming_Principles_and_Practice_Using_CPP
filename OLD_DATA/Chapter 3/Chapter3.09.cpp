@@ -1,5 +1,5 @@
 // 28/12/2025
-// Chapter3.9.cpp
+// Chapter3.09.cpp
 // Exercises
 
 // [11] Build a "Rock, Paper, Scissors" game, where the machine takes its next answer out of a vector. For pseudo-randomness, let the user enter some value at the start.

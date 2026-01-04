@@ -1,5 +1,5 @@
 // 25/12/2025
-// Chapter3.2.cpp
+// Chapter3.02.cpp
 // Exercises
 
 // [3] Fix the program from §3.6.3 so that it always prints out a median.
