@@ -6,7 +6,7 @@
 
 #include "PPPheaders.h"
 
-int basicCalculator() {
+int main() {
 
 	string operation;
 	double val1, val2;

@@ -6,7 +6,7 @@
 
 #include "PPPheaders.h"
 
-int sumUpMoney() {
+int main() {
 
 	//	0.01	  0.05		 0.10	  0.25		  0.50			 1.00
 	int pennyAmt, nickelAmt, dimeAmt, quarterAmt, halfDollarAmt, dollarCoinAmt;

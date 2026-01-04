@@ -8,7 +8,7 @@
 
 #include "PPPheaders.h"
 
-static int mileConverter() {
+int main() {
 
 	double miles;
 

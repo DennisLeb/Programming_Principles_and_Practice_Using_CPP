@@ -6,7 +6,7 @@
 
 #include "PPPheaders.h"
 
-static int legalAndIllegal() {
+int main() {
 
 	// legal names
 	string myStr = "hello ;)";

@@ -6,7 +6,7 @@
 
 #include "PPPheaders.h"
 
-static int upstairsBathroom() {
+int main() {
 
 	cout << "Empty your hands. Put everything you were holding on the table in front of you.\n";
 	cout << "Stand up from your chair and turn around, towards the staircase.\n";

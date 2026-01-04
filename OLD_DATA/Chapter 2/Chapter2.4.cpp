@@ -6,7 +6,7 @@
 
 #include "PPPheaders.h"
 
-static int primitiveSort() {
+int main() {
 
 	int val1, val2, val3;
 

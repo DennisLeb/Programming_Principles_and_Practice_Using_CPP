@@ -1,0 +1,54 @@
+// Date 19/12/2025
+// File Chapter1.Review.txt
+// Review
+
+[1] What is the purpose of the "Hello, World!" program?
+The program is supposed to output a string constant to the monitor.
+
+[2] Name the four parts of a function.
+1. return type (int)
+2. function name (main)
+3. argument list
+4. function block / code block
+
+[3] Name a function that must appear in every C++ program.
+The main function.
+
+[4] In the "Hello, World" program, what is the purpose of the line return 0;?
+It's supposed to communicate to the function caller, that the program executed properly.
+
+[5] What is the purpose of the compiler?
+To translate the user-written source code into object code, which the computer is able to "understand".
+
+[6] What is the purpose of the import statement?
+It's supposed to define the "cout" statement, so that the compiler knows what to do with it. It does this using the std module.
+
+[7] What is the purpose of the #include directive?
+In my case, I had to use an #include statement, which does basically the same thing but slower and more traditionally. A key difference is that #include uses a header file.
+
+[8] What does a .cpp suffix at the end of a file name signify in C++?
+That the file includes the source code of a program.
+
+[9] What does the linker do for your program?
+It links the different parts of a program together after they have been compiled and outputs an executable file (.exe).
+
+[10] What is the difference between a source file and an object file?
+A source file is written by the human programmer and is compiled into an object file, to be read by a computer. Source files are readable for humans only and object files are readable for the computer.
+
+[11] What is an executable?
+An executable file (.exe) is used to run a program on certain operating systems / hardware. Not every executable is compatible with every OS or piece of hardware.
+
+[12] What is an IDE and what does it do for you?
+An IDE (integrated development environment) is useful, since it lets you edit your source code files, scans for any obvious syntax errors and highlights them, compiles your code and runs it too. It's basically a compiler with a lot of added QoL features.
+
+[13] How do you get a compiled program to run?
+Firstly, you fix any compile-time, link-time or run-time errors. After that's done (and assuming you're using an IDE), you press compile-and-run (CTRL + F5).
+
+[14] What is a comment?
+This is. They're useful for conveying information to any co-programmers or your future self, that isn't obvious just from the code itself, since the compiler will always ignore them.
+
+[15] What is the purpose of a drill?
+These drills are supposed to reinforce learned concepts in my memory and to help me practice programming work.
+
+[16] If you understand everything in the textbook, why is it necessary to practice?
+Because otherwise most of the things I've learned wouldn't stick with me. Practice is necessary to support long-term memory formation.

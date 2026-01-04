@@ -6,7 +6,7 @@
 
 #include "PPPheaders.h"
 
-static int giveDirections() {
+int main() {
 
 	// target: seesaws outside my building
 	cout << "From the front door, turn 90 degrees to the right and walk until past the wall on your left.\n";

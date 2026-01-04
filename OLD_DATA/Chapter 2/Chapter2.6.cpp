@@ -6,7 +6,7 @@
 
 #include "PPPheaders.h"
 
-int evenOrOdd() {
+int main() {
 
 	int val;
 

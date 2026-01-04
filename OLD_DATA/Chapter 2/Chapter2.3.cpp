@@ -13,7 +13,7 @@
 
 #include "PPPheaders.h"
 
-static int intAndDoubleMath() {
+int main() {
 
 	int val1, val2;
 

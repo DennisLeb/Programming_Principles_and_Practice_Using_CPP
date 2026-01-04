@@ -6,7 +6,7 @@
 
 #include "PPPheaders.h"
 
-int stringToIntNums() {
+int main() {
 
 	string numString;
 

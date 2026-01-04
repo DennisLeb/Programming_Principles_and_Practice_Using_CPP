@@ -6,7 +6,7 @@
 
 #include "PPPheaders.h"
 
-static int helloProgramming() {
+int main() {
 
 	cout << "Hello, Programming!\nHere we go!\n";
 	return 0;

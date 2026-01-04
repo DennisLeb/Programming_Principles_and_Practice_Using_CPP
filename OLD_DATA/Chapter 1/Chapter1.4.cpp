@@ -8,7 +8,7 @@
 
 #include "PPPheaders.h"
 
-static int termDefinition() {
+int main() {
 
 	cout << "Term:\t\t//\n";
 	cout << "Definition:\tAll text following the // token will be interpreted as a comment, until the end of the line.\n\n";

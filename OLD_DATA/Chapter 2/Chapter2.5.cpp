@@ -6,7 +6,7 @@
 
 #include "PPPheaders.h"
 
-int primitiveStringSort() {
+int main() {
 
 	string str1, str2, str3;
 
