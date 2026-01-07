@@ -6,7 +6,7 @@
 
 #include "PPPheaders.h"
 
-double convertThis(double old_temp, double old_unit) {
+double convertThis(double old_temp, char old_unit) {
 
 	double res = 0;
 
