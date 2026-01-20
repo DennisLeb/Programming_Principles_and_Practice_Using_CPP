@@ -130,6 +130,9 @@
     <ClInclude Include="PPPheaders.h" />
     <ClInclude Include="PPP_support.h" />
   </ItemGroup>
+  <ItemGroup>
+    <Text Include="Chapter5.05.txt" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>

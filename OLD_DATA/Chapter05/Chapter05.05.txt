@@ -1,0 +1,24 @@
+// 20/01/2026
+// Chapter05.05.cpp
+// Exercises
+
+// [8] Design a program that asks users to enter two numbers, asks them whether they want to calculate permutations or combinations, and prints out the results.
+//		Write Pseudo-Code for the program and break it into subcomponents and improve on it from there.
+//		Permutation P(a, b) = (a!) / ((a - b)!), where ! is used as a suffix factorial operator
+//		Combination C(a, b) = (P(a, b)) / (b!)
+
+
+
+// should be able to handle int and char
+handleInput(i_want_a);
+handleInput(i_want_b);
+handleInput(i_want_P_or_C);
+
+// used in calculateResult()
+factorial();
+
+// calls handleOutput() when done
+calculateResult(a, b, P || C);
+
+// last called function
+handleOutput();

@@ -1,0 +1,124 @@
+// Date 17/01/2026
+// File Chapter05.Review.txt
+// Review
+
+[1] What do we mean by "Programming is understanding"?
+The further one gets along in implementing a program, the more they understand the flaws in their initial understanding of the problem.
+Sometimes the parts you first thought were going to be the most challenging are trivial at best.
+At other times you're completely blindsided by an aspect you first thought simple, turning out to be much more devious and time consuming than anticipated.
+Often such understanding can only be gained by actually writing code.
+
+[2] The chapter details the creation of a calculator program. Write a short analysis of what the calculator should be able to do.
+By using a method called Tokenizing the program takes in user input (from the keyboard) character by character, and then analyzes it based on a pre-defined grammar.
+During this analysis the result is already being calculated step by step, until the input terminating character '=' is read. It then outputs the correct result.
+The program is able to account for and print out adequate error messages for the following cases:
+- Incorrect input type (non-numbers or non-pre-defined control characters)
+- Incomplete expressions
+- Division by zero
+
+[3] How do you break a problem up into smaller manageable parts?
+Mostly trial and error. Though optimally you should put some real thought into your program's structure before writing even a first draft.
+The most logically distinct parts should always be contained in their own functions, especially if they're going to be used multiple times.
+It is however almost impossible to fully map out a program's design structure, before having sufficiently dealt with the problem by actually writing your first version.
+Only then can you truly know what methods can work for your solution and how to divide them efficiently.
+
+[4] Why is creating a small, limited version of a program a good idea?
+Such a version is very useful in order to get to know your problem, how you could go about writing a solution and how you couldn't.
+It is best to alternate between writing these concept programs and analyzing what about them works and what doesn't, and then using
+that knowledge to iterate upon the solution until you have something presentable.
+
+[5] Why is feature creep a bad idea?
+Because it distracts from and dillutes what the base version of a solution should be. It is always preferable to have a simple program that works, over an intricate one that doesn't.
+
+[6] What are the three main phases of software development?
+Analysis: Write a set of requirements/specifications. This means what your solution should include.
+
+Design: Create the structure for your program. Figure what which parts to divide and how they should all communicate with one another.
+
+Implementation: Write the code, debug it, and test that it does what it is supposed to do.
+
+[7] What is a "use case"?
+A use case is an example of what a program should minimally be able to do. In other words, how will the user interact with the program and what will they expect as output?
+
+[8] What is the purpose of testing?
+To write a professional program, you must be aware of how it could be exploited and minimize these cases or provide adequate error messages for them.
+These cases can be found out by testing your program with a large array of test values, provided by a third party program if necessary.
+
+[9] According to the outline in the chapter, describe the difference between a Term, an Expression, a Number and a Primary.
+Starting with Numbers, which are just floating-point-literals, every Number is a Primary, every Primary is a Term, and every Term is an Expression, but not vice versa.
+A Primary is also an Expression inclosed in parentheses, because it deals with both Numbers and the parenthesis symbols.
+Roughly the same goes for Terms, which deal with the symbols * and /, and Expressions, which deal with + and -, all according to the correct order of operations.
+
+[10] In the chapter, an input was broken down into its components: Terms, Expressions, Primarys, and Numbers. Do this for: (17 + 4) / (5 - 1)
+First the program reads '(', which prompts it to find the Expression inside the parenthesis. After reading "17", then '+', then '4', they've already been added together and returned
+into the "left" variable of the initial Expression. It then detects the '/' operator and searches for another Primary.
+At that point it recognized another '(' and completes the Expression inside of the parenthesis, before finally dividing, returning 5.25 to the user.
+
+[11] Why does the program not have a function called number()?
+Because there is no need to manually interpret floating-point-values, since C++ is able to recognize them upon input.
+
+[12] What is a Token?
+In the case of the caluculator a Token is a user-created data type, which is used to organize input into different categories and makes it easier to perform operations on it later.
+
+[13] What is a grammar? A grammar rule?
+You use a grammar to tell your program in what operations to perform on certain values and in what order.
+The different rules of a grammar sort and organize distinct parts of your input values, these can consist of any type you'd prefer.
+
+[14] What is a class? What do we use classes for?
+For the calculator we used classes to create custom data types in order to orgranize our input data.
+They can include member variables of any other, perhaps also custom, types and member functions.
+
+[15] How can we provide a default value for a member of a class?
+In the construction function for variables of that class, you can choose how many arguments to take in for each call.
+If a function caller decides to not supply every value, you can assign default values in the definition.
+
+[16] In the expression function, why is the default for the switch-statement to "put-back" the Token?
+If a value is read and it isn't + or -, it has to be put back into the input stream so that other functions can read it as well and decide what to do from there.
+
+[17] What is "look-ahead"?
+In some cases the program has to read upcoming input before deciding what to do. That's what "looking-ahead" means.
+This is critical in order to perform the correct order of operations.
+
+[18] What does putback() do and why is it useful?
+As a function of the Token-stream class, putback()'s task is to modify certain class values so that the next caller of get() can access them.
+putback() assigns a Token to its class's buffer variable and changes the boolean full to remember the state of buffer.
+This is useful when get() has already read a value, but in order for a different part of the program to read it again, it has to be "put back" into the input stream.
+
+[19] Why is the remainder (modulus) operation, %, difficult to implement in the term()?
+Modulus only works on integer variables, and the current version of the calculator uses doubles, making implementation impossible for now.
+
+[20] What do we use the two data members of the Token class for?
+Token has a char type member, named kind and a double type member, named value.
+kind is used to tell what kind of variable a Token is holding. Since it is simplest, each operator/character can represent itself in the kind variable. Here value is left empty.
+For numbers however, you need the value variable. To tell if a Token is a number, kind is set to '8', which is a rather arbitrary choice but works just fine.
+Then the actual number assigned to the value variable to access later.
+
+[21] Why do we (sometimes) split a class's members into private and public members?
+A class's values and functions that have to be accessed by outside callers are set to public, sometimes this is all of them.
+At other times there are values that are only supposed to be accessed by in-class operations/functions, and not by any outside caller.
+The full and buffer variables inside of the Token_stream class are good examples. Both are only modified by class functions and shouldn't be accessible in any other way.
+
+[22] What happens in the Token_stream class when there is a Token in the buffer and the get() function is called?
+In that case most of get() is skipped, because the work of converting raw input into a Token has already been done.
+All that's left to do is remove that Token from the buffer, set full to false and return it to the caller.
+
+[23] Why were the ';' and 'q' characters added to the switch-statement in the get() function of the Token_stream class?
+So that the if-statements in main() can determine whether a user has completed their input and is now expecting output (;).
+Or whether they wish to terminate the program (q).
+If these weren't handled in the get() function, it would throw an error whenever they were entered.
+
+[24] When should we start testing our program?
+Whenever you have a running version of it, that includes one or more new features (or if it's the very first working draft of your program).
+It's very important to build a stable version of your program, before deciding to expand it.
+
+[25] What is a "user-defined type"? Why would we want one?
+C++ provides your basic building block types, such as chars, ints, and doubles, but for many cases you need your variables to hold more complex data in more complex ways.
+By featuring user-defined types, C++ allows you to build whatever is most practical and efficient for your particular needs.
+For example in the calculator program a type was needed, that could both store chars and doubles, and also what type it was holding. That's called a Token.
+
+[26] What is the interface to a C++ "user-defined type"?
+A class.
+
+[27] Why do we rely on libraries of code?
+Because it's simply not efficient to build every single project from scratch.
+If someone already wrote code that fits your needs, there's nothing wrong with using it for your own program. 

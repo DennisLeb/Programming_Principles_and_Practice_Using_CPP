@@ -1,0 +1,23 @@
+// 20/01/2026
+// Chapter05.ex5.txt
+// Exercises
+
+// [5] Write a grammar for bitwise logical expressions: ! (not), ~ (complement), & (and), | (or), ^ (exclusive or).
+
+Expression:
+Term
+Expression '|' Term
+
+Term:
+Primary
+Term '^' Primary
+
+Primary:
+Number
+Primary '&' Number
+'!' Expression
+'~' Expression
+'(' Expression ')'
+
+Number:
+integer-value
