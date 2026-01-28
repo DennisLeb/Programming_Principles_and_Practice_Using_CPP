@@ -22,7 +22,4 @@
       <Filter>Headerdateien</Filter>
     </ClInclude>
   </ItemGroup>
-  <ItemGroup>
-    <Text Include="Chapter5.05.txt" />
-  </ItemGroup>
 </Project>

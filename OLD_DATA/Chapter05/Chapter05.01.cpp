@@ -1,6 +1,6 @@
 // 18/01/2026
 // Chapter05.01.cpp
-// Excercises
+// Exercises
 
 // [2] Add the ability to use {} as well as () in the program, so that {(4 + 5) * 6} / (3 + 4) will be a valid expression.
 //
@@ -167,20 +167,20 @@ double expression() {
 int main() {
 
 	double val = 0;
-	cout << ">> ";
 
 	try {
 		while (cin) {
+			cout << "> ";
 			Token t = ts.get();
 			if (t.kind == 'q')
 				return 0;
 			if (t.kind == ';') {
-				cout << "= " << val << "\n\n" << ">> ";
+				cout << "= " << val << '\n';
 				continue;
 			}
 			else
 				ts.putback(t);
-
+			
 			val = expression();
 		}
 	}

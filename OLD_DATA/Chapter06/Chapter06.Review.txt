@@ -1,0 +1,79 @@
+// 23/01/2026 
+// Chapter06.01.cpp
+// Review
+
+[1] What is the purpose of working on the program after the first version works? Give a list of reasons.
+- To first have a solid foundation of the program to iterate upon
+- To add more features
+- To allow for testing with every new addition
+- To up good design and structure before new features
+
+[2] Why does "1+2; q" typed into the calculator not quit after it receives an error?
+Because the "quit keyword" has been changed to "exit" for Drill [11].
+
+[3] Why did we choose to make a constant character for called number?
+Before number was added, the char '8' was used, which didn't read well. It looked arbitrary and didn't make much sense to anyone else that might read the code.
+Technically number still equals '8', but the code is now more approachable for human readers.
+
+[4] We split main() into two separate functions. What does the new function do and why did we split main()?
+The new function calculate() now performs a logically distinct operation from the error handling in main(). They were split to make the code more cohesive and readable.
+calculate() performs the actual calculations for the program, using many more subfunctions.
+
+[5] Why did we split the code into multiple functions? State principles.
+- Logical distinction:
+	Each function performs a different operation, dividing the workload.
+- Readability:
+	In many places code was replaced with descriptive function names that tell readers roughly what's being done.
+- Debugging:
+	Functions with distinct tasks make debugging easier, by being able to know where to look for certain errors.
+
+[6] What is the purpose of commenting?
+Well documented code enables you to read comments to get a good understanding of what a code snippet is supposed to do, instead of having to read and understand every line of code.
+It's useful for strangers or your future self, in case you yourself forgot what you were doing.
+
+[7] What is the purpose of symbolic constants?
+They make code more readable and cover up any "magic constants", such as '8', which was changed to number.
+
+[8] Why do we care about code layout?
+Better code layout makes programs more readable for humans and simplifies debugging. It also allows for new features to be added more efficiently, by knowing where they belong logically.
+
+[9] How do we handle % (remainder) of floating-point-numbers?
+We use the narrow function to type cast a double return value into an int variable. If any data is lost by doing this a narrowing-error is thrown, letting the user know what went wrong.
+
+[10] What does is_declared() do and how does it work?
+The is_declared() function takes a string variable as its argument and uses a for-loop to compare it against every variable name inside of the variable vector.
+If any variable name is found to be identical to the parameter, the variable already exists and the function returns true.
+If it loops through the whole vector without finding its match, it returns false.
+
+[11] The input representation for let is more than one character. How is it accepted as a single Token in the modified code?
+The Token_stream::get() function is now able to also read strings, if no other case applies and the first input character is a letter.
+Another if-statement checks that if that string equals the "declaration keyword" let, a Token is created which contains 'L' as Token t.kind.
+
+[12] What are the rules for what names can and cannot be in the calculator program?
+A variable name has to start with any letter and can from then on contain any additional letters or numbers. There is no length limitation.
+Special characters such as '*', '+', '@', '%' or '/' are not allowed, not even '_'.
+
+[13] Why is it a good idea to build a program incrementally?
+It allows for continuous testing of each iteration, meaning you'll know exactly what build is responsible for a bug.
+
+[14] When do you start to test?
+Once you have finished the earliest working version of your program, which should happen as soon as possible, no matter how incomplete or unimpressive it might seem.
+
+[15] When do you retest?
+Whenever you just added a new feature or changed something significant. Sometimes even insignificant changes warrant testing. Actually they do most of the time.
+
+[16] How do you decide what should be a separate function?
+Whenever you have a logically distinct operation, a piece of code you'd like to implement multiple times, or you have a function taking up more than one screen of space —
+you should think about making a separate function.
+
+[17] How do you choose names for variables and functions? List possible reasons.
+- Descriptiveness
+- Readability
+- Uniqueness — no overlap with existing objects
+
+[18] What should be in comments and what should not?
+Some things are better said in code, others in English. If the code speaks for itself, comments are unnecessary.
+But if a piece of code isn't very intuitive to understande, you should probably comment its purpose.
+
+[19] When do we consider a program finished?
+Never really. But if we would, it'd be when it has met all requirements, has solid error handling, no memory leaks, good structure and then some.

@@ -2,7 +2,7 @@
 // Chapter05.03.cpp
 // Exercises
 
-// [6] Redo the "Bulls and Cows" game from excercise 12 in Chapter 4 to use four letters instead of four digits.
+// [6] Redo the "Bulls and Cows" game from exercise 12 in Chapter 4 to use four letters instead of four digits.
 
 #include "PPPheaders.h"
 

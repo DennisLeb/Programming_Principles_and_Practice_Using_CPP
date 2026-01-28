@@ -4,7 +4,7 @@
 
 // [2] The following code has many errors in it. Find them, list them and correct the code.
 // [3] Absolute zero (-273.15C or 0K) is the lowest temperature that can be reached. Place a check in main() that will produce an error if a temperature below absolute zero is given.
-// [4] Do excercise 3 again, but this time handle the error inside ctok().
+// [4] Do exercise 3 again, but this time handle the error inside ctok().
 // [5] Add to the program so that it can also convert Kelvin to Celsius.
 
 #include "PPPheaders.h"

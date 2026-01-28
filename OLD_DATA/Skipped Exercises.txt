@@ -1,0 +1,7 @@
+Chapter 1
+    Exercise 4
+        - It's just writing a baking recipe, there's not even any real programming involved.
+
+Chapter 6
+    Exercise 12
+        - "accept input from any istream". I don't know what this means. Will return once I do.

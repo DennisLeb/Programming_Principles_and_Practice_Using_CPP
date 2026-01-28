@@ -1,6 +1,6 @@
 // 20/01/2026
 // Chapter05.02.cpp
-// Excercises
+// Exercises
 
 // [4] Rework exercise 20 in Chapter 3 to use a vector<Name_value> instead of two vectors. Define a class Name_value that holds a string and a value.
 
