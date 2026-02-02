@@ -1,5 +1,5 @@
 // 23/01/2026 
-// Chapter06.01.cpp
+// Chapter06.Review.txt
 // Review
 
 [1] What is the purpose of working on the program after the first version works? Give a list of reasons.
@@ -63,13 +63,13 @@ Once you have finished the earliest working version of your program, which shoul
 Whenever you just added a new feature or changed something significant. Sometimes even insignificant changes warrant testing. Actually they do most of the time.
 
 [16] How do you decide what should be a separate function?
-Whenever you have a logically distinct operation, a piece of code you'd like to implement multiple times, or you have a function taking up more than one screen of space —
+Whenever you have a logically distinct operation, a piece of code you'd like to implement multiple times, or you have a function taking up more than one screen of space  
 you should think about making a separate function.
 
 [17] How do you choose names for variables and functions? List possible reasons.
 - Descriptiveness
 - Readability
-- Uniqueness — no overlap with existing objects
+- Uniqueness   no overlap with existing objects
 
 [18] What should be in comments and what should not?
 Some things are better said in code, others in English. If the code speaks for itself, comments are unnecessary.
