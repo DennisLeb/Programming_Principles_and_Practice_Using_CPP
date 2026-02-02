@@ -83,11 +83,6 @@ namespace PPP {
 		Exit() : std::runtime_error("Exit") {}
 	};
 
-	inline void simple_error(const std::string& s)	// write ``error: s'' and exit program (for non-exception terminating error handling)
-	{
-		std::cerr << "error: " << s << '\n';
-		exit(1);
-	}
 
 	PPP_EXPORT inline void error(const std::string& s)	// error() simply disguises throws
 	{
