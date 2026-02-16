@@ -1,0 +1,82 @@
+// 04/02/2026
+// Chapter08.Review.txt
+// Review
+
+[1] What are the two parts of a class as described in this chapter?
+Interface:
+	Provides the user with useful operations on class data. Public.
+Implementation:
+	Hold all sensitive class data. Accessible only with class operations. Private.
+
+[2] What is the difference between the interface and implementation in a class?
+The interface is directly accessible to the user, while the implementation is only indirectly accessible through the interface.
+
+[3] What are the limitations and problems of the struct Date from §8.4.1?
+By default, all data in a struct is public, meaning Date's values could be changed arbitrarily (error prone).
+There are also no Date validity checks, or any operations available at all.
+
+[4] Why is a constructor used for the Date type instead of an init_day() function?
+Because it is simply more convenient to. Also, every class should have a constructor function and Date's case suits one perfectly.
+It also guarantees validity checking for every initialized variable of type Date.
+
+[5] What is an invariant? Give examples.
+An invariant is a rule for what makes a valid value.
+Examples:
+	Date:
+		A Date must represent a day in the past, present, or future.
+	Day:
+		Must be an integer between 1 and 31. (simplified)
+	int:
+		Must be a whole number.
+
+[6] When should class functions be put in the class definition, and when should they be defined outside the class? Why?
+For readability and performance reasons, any function, that is over 5 lines long should be declared in-class and defined outside.
+Another boon of outside definition is that, unlike if the function body was in-class, the whole class does not need recompilation
+if you make a change to the function body.
+
+[7] What is a default constructor and why do we need one?
+Declaring a class variable without initializing it isn't very safe. That's why, if you're not initializing it to an explicit value,
+it's best to have some default value to initialize to. Default constructors are a good tool for this.
+
+[8] What is a default member initializer?
+Constructors (especially default constructors) usually have a member initializer list, which specifies the value to initialize member variables to.
+A default member initializer simply tells the class what values to assign to its members, if none are provided at construction.
+
+[9.1] When should operator overloading be used in a program?
+Operator overloading is useful when you need your user-defined types to perform new operations, such as being able to be output using an ostream.
+
+[9.2] Give a list of operators you might want to overload (each with a reason).
+<<:
+	To be output using an ostream.
+++, --:
+	To increment/decrement your type.
+<, >, ==:
+	To compare your type against others (or itself).
+
+[9.3] Which ones can you define in C++?
+All operators which already serve some other purpose. You can't assign unused symbols as a new operator (such as @, $, € etc.).
+Also, unary operators (such as !) can only be newly defined as unary, not to compute two values like * or /, and vice versa.
+
+[10] Why should the public interface to a class be as small as possible?
+Compact and complete interfaces are easiest to learn and remember.
+Debugging also becomes a lot easier, when you know exactly where to look for errors.
+
+[11] What does adding const to a member function do?
+When defining a const variable (sic) of your class type, member functions with the const keyword after their argument list will still be allowed by the compiler.
+This is because such const member functions don't (or shouldn't) change any other member values. They're useful for reading data and more.
+
+[12] Why are "helper functions" best placed outside the class definition?
+By definition helper functions perform tasks that are useful, but in no way essential to the class.
+If such a function can elegantly be defined outside the class, it should be. Class definitions should be kept minimal but complete.
+Also when something goes wrong, helper functions can't directly corrupt class object data.
+
+[13] How does an enum class differ from a "plain" enum?
+enum classes (scoped enums) keep their data in a separate scope from the rest of the file, plain enums do not.
+In some cases this might be more convenient, but, especially in larger programs, enum classes offer much more control and tidyness.
+plain enums can also be implicitly converted to an int.
+	Example:
+		enum My_enum {
+			one=1, two, three
+		};
+		My_enum e = one;
+		int i = e;		// this wouldn't work for an enum class

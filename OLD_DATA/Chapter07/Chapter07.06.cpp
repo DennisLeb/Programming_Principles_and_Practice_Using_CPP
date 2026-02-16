@@ -27,8 +27,8 @@ void getInput(vector<string>& name) {
 	}
 	cout << endl;
 	// checks for identical names
-	for (int i = 0; i < 5; i++) {
-		for (int j = 0; j < 5; j++) {
+	for (int i = 0; i < name.size(); i++) {
+		for (int j = 0; j < name.size(); j++) {
 			if (i == j)
 				continue;
 			if (name[i] == name[j])
