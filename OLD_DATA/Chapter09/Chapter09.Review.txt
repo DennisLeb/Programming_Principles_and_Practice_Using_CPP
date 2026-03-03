@@ -1,0 +1,136 @@
+// 18/02/2026
+// Chapter09.Review.txt
+// Review
+
+[1] Why is I/O tricky for a programmer?
+Compared to handling input, output is simple. Input is tricky because there are so many error cases.
+For one, you can't trust users to always make correct input, whether it's format or the exprected type.
+You also have to take into account whether your input expectations are even plausible or not.
+All this combines to provide more than enough headache for a programmer.
+
+[2] What does the notation << hex do?
+It tells the output stream that any following numeric values are to be printed in hexadecimal form. It does this until told otherwise (e.g. << dec).
+
+[3] What are hexadecimal numbers used for in computer science? Why?
+They provide a compact way to handle information. One hexadecimal value corresponds to a 4-bit value, two are an 8-bit byte and so on.
+
+[4] Name some of the options you may want to implement for formatting integer output.
+- Various numeric systems (dec, hex, oct, etc.)
+- setw() for formatting width of output
+- format() for seamlessly putting integer values into string output
+
+[5] What is a manipulator?
+Manipulators manipulate the state of streams. Examples include dec, hex, oct and so on.
+These convert integer values, that were put into the stream, into the specified numeric system.
+
+[6] What is the default output format for floating-point values?
+It's called defaultfloat and it can dynamically choose between the fixed and scientific formats, depending on the output value's most accurate representation.
+
+[7] Explain what setprecision() and setw() do.
+setprecision(n) is used to round output floating-point values to n digits (by default n=6).
+
+setw(n) sets the width of an output expression to its n value. This is useful for making output visually pleasing.
+
+[8] Which of the following manipulators do not "stick": hex, scientific, setprecision(), setw()?
+Only setw() is not sticky, meaning it is the only one that will only apply to the next ouput expression and be discarded after.
+
+[9] In format(), how do you specify where an argument is placed on output?
+By default every pair of braces {} pairs with the according argument from left to right.
+I.e. for format("1: {} 2: {}", 'a', 'b') 'a' will be matched to the first pair of braces and 'b' to the second, and so on for any additional braces and arguments.
+
+One can also specify manually which braces belong to which arguments by typing the argument's index into the braces (starting from 0).
+I.e. for format("1: {1} 2: {0}", 'a', 'b') 'a' will be matched to the second pair of braces and 'b' to the first.
+
+[10] Give two examples of where a stringstream can be useful.
+- Parsing a string by checking it char for char through a stringstream.
+- Concatonating several strings into one.
+
+[11] When would you prefer line-oriented input to type-specific input?
+Mostly in cases when I could be sure that a string is already formatted correctly and don't have to do any additional parsing.
+
+[12] What does isalnum(c) do?
+It's a convenient combination of the isalpha(c) and isdigit(c) functions, i.e. it checks whether a char is a letter or a number character and returns a bool.
+
+[13] When dealing with input and output, how is the variety of devices dealt with in most modern computers?
+Through the device drivers which are built into almost every operating system. They make I/O from different devices appear as similar as possible through an I/O library.
+This provides a convenient level of abstraction for programmers, so that they don't have to think about devices or device drivers.
+
+[14] What, fundamentally, does an istream do?
+You use an input stream to receive date for your program. Without some form input computers would be useless.
+A stream provides a convenient method of parsing and organizing many kinds of input.
+
+[15] What, fundamentally, does an ostream do?
+Output streams allow your program's results to be accessed by its user. They're practical tools to format and structure output.
+
+[16] What, fundamentally, is a file?
+A file holds data. Files stored in permanent memory (hard drives etc.) allow programs to store information and receive it again as input.
+Since normal working memory is discarded after a program terminates, files are essential for handling information.
+
+[17] What is a file format?
+A file format can tell you and your programs what to expect when reading that file.
+To adequately write to and read from a file, you have to know its format, since it provides context for the stored data.
+
+[18] Name four different types of devices that can require I/O for a program.
+- Keyboard
+- Mouse
+- Digital Camera
+- Temperature sensor
+
+[19] What are the four steps for reading a file?
+1. Know its name
+2. Open it
+3. Read in the characters
+4. Close it (typically done implicitly)
+
+[20] What are the four steps for writing a file?
+1. Name it
+2. Open it or create a new file of that name
+3. Write out our objects
+4. Close it (typically done implicitly)
+
+[21] Name and define the four stream states.
+- good() -> occurs when everything went as expected
+- bad()  -> occurs when something unexpected and serious happened (e.g. hardware failure)
+- fail() -> occurs when something unexpected happened (e.g. wrong data type read)
+- eof()  -> occurs when no input was made
+
+[22] Discuss how the following input problems can be resolved:
+	 a. The user typing an out-of-range value
+	 b. Getting no value (end-of-file)
+	 c. The user typing something of the wrong type
+All three problems might be resovled by hounding the user until a correct input is made (e.g. using a while-loop).
+Depending on the situation, secenario b may be the desired outcome (e.g. when finishing reading from a file).
+
+[23] In what way is input usually harder than output?
+Handling input errors causes most of the complexity in input handling.
+Input always has to conform to your expected format, this means that user input (e.g. from the keyboard) has to be very precise, which is a lot to ask of most users.
+It also has to be parsed in some cases, which requires even more care to be put into your input handling.
+
+[24] In what way is output usually harder than input?
+Parsing output into the required file format could be. Though not even then would I say it's harder than input.
+
+[25] Why do we (often) want to separate input and output from computation?
+Because it (often) is a separate logical process, which provides little to no overlap with the computation.
+For larger programs to remain readable and maintainable these kinds of divisions are essential.
+
+[26] What are the two most common uses of the istream member function clear()?
+Firstly you may want to recover after receiving bad input, so you use clear() to set the istream back to the good() state.
+Secondly, using something like is.clear(ios::failbit), you may want to set the stream state to fail() to communicate to the rest of your program that something went wrong.
+This is useful when fail() wouldn't have normally occurred by istream definition.
+
+[27] What are the usual function declarations for << and >> for a user-defined type X?
+This would be something like
+	istream& operator>>(istream&, X&);
+or
+	ostream& operator<<(ostream&, X&);
+
+You pass an iostream parameter by-reference, alter it depening on X, and return it, again by-reference.
+
+[28] How do you specify where an argument is inserted into a format string in format()?
+By typing an argument index into the braces (i.e. {n}). Arguments are zero-indexed.
+
+[29] What is the notation for bases of decimal values in format()?
+If you wanted to format to hexadecimal you'd type {:x}, {:o} for octal, {:d} for decimal, and {:b} for binary.
+
+[30] How do you specify the precision of floating-point values in format()?
+If you wanted a precision of two decimal places you'd type {.2}, if you wanted eight you'd type {.8} and so on.

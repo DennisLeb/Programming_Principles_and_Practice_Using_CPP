@@ -1,0 +1,11 @@
+= 2
+= 6
+= error: Bad token - Token_stream::get()
+= 1.42857
+= 16
+= 10.0499
+= 5.75
+= -31.21
+= 11.5
+= 62.42
+end of input file reached

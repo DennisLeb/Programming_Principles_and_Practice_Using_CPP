@@ -16,6 +16,10 @@
 #include<memory>
 #include <algorithm>
 
+// meine nachträglichen includes
+#include<fstream>
+#include<iomanip>
+
 #define PPP_EXPORT
 #include "PPP_support.h"
 
