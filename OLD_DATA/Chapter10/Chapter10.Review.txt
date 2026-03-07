@@ -1,0 +1,80 @@
+// 04/03/2026
+// Chapter10.Review.txt
+// Review
+
+[1] Why do we use graphics?
+To enhance the user experience of our programs.
+Graphics also provide many neat ways of outputting data, e.g. displaying temperature data in graphs.
+
+[2] When do we try not to use graphics?
+When first developing the code of a program.
+Graphics should be amongst the last stages of building a program, because they provide no direct functionality.
+Also some programs are so minimal in scope, that adding any graphical elements at all would be overkill.
+
+[3] Why is graphics interesting for a programmer?
+Besides just being fun, graphical elements are what makes programs accessible to the common user.
+They're interesting for their ability to make (at times) complicated source code disappear,
+and to replace it with an interface that is easy to grasp and interact with.
+
+[4] What is a window?
+A window is the interface of a program. All functionality that it provides, is accessed only through the window.
+
+[5] In which namespace do we keep our graphics interface classes (our graphics library)?
+Inside of 'Graph_lib'.
+
+[6] What header files do you need to do basic graphics using our graphics library?
+'Graph.h' and 'Simple_window.h', which both indirectly '#include' several other header files.
+
+[7] What is the simplest window to use?
+An object of the 'Simple_window' class.
+It inherits from the 'Window' class and provides simplified functionality, i.e., it opens an empty window with a 'next' button.
+
+[8] What is the minimal window?
+An empty one. The minimal window I know how to use right now is an empty 'Simple_window', which also features a 'next' button.
+
+[9] What's a window label?
+It's a name you must enter when initializing a 'Simple_window' object, which is given to your operating sytem to label your window with.
+
+[10] How do you label a window?
+In case of the 'Simple_window' class, you enter a string as an argument when initializing an object of this type.
+
+[11] How do screen coordinates work? Window coordinates? Mathematical coordinates?
+Both screen and window coordinates are measured in pixels.
+Screen coordinates:
+	Used to define points on your computer screen. Point (0, 0) is at the top left of the screen.
+	Increasing the x-coordinate moves a point to the right. Increasing the y-coordinate moves a point downwards.
+
+Window coordinates:
+	Used to define points in your window. Point (0, 0) is at the top left of the window.
+	Point movement behaves the same as with screen coordinates, except that all movement is now relative to the window coordinates.
+
+Mathematical coordinates:
+	Used to define points in a mathematical graph. Point (0, 0) is at the bottom left of the graph.
+	Increasing the x-coordinate moves a point to the right. Increasing the y-coordinate moves a point upwards.
+
+[12] What are some examples of 'shapes' that we can display?
+Polygons, rectangles, axes, text, etc..
+
+[13] What command attaches a shape to a window?
+Assume that 'win' is an object of type 'Simple_window' and 'rect' is an object of type 'Rectangle':
+	win.attach(rect);
+
+[14] Which basic shape would you use to draw a hexagon?
+I'd use a 'Polygon' with six added 'Point's.
+
+[15] How do you write text somewhere in a window?
+First you'd initialize a 'Text' object, which takes a 'Point' with window coordinates and a string to display as its arguments.
+Then attach it to your 'Simple_window' object.
+
+[16] How would you put a photo of your best friend in a window (using a program you wrote yourself)?
+I'd use an object of type 'Image' to select position and what image to use, and attach it to my 'Simple_window' object.
+
+[17] You made a Window object, but nothing appears on your screen. What are some possible reasons for that?
+- Forgot to call the wait_for_button() function.
+- Forgot to create 'Application' object
+- Forgot to attach 'Shape' objects.
+
+[18] What library do we use to implement our graphics/GUI interface library? Why don't we use the operating system directly?
+The Qt library is used to implement all of the graphics classes, functions, etc. with which I've been working.
+The operating system's graphical facilities are not used directly because this would cause the code to only work on systems like the one it was written on.
+It also helps to avoid a lot of the technicalities that come with working with an OS directly.

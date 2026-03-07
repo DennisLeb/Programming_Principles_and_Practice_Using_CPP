@@ -68,7 +68,7 @@ All names in a scope can be seen from within scopes nested within it.
 	the area of text outside any other scope
 - A module scope:
 	the area of text within a module
-_ A namespace scope:
+- A namespace scope:
 	a named scope nested within the global scope or in another namespace
 - A class scope:
 	the area of text within a class
