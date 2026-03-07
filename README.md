@@ -5,4 +5,6 @@
 Eine Zusammenstellung von allen Übungen, die im Verlauf des Buches auf einen zukommen.  
 Ich nehme mir nicht strikt vor jede einzelne davon zu bearbeiten, aber mache dennoch so viele wie möglich.  
   
-Alle fertigen `.cpp` Dateien sind im Ordner `OLD_DATA` unter dem jeweiligen Kapitel zu finden.
+Alle fertigen `.cpp` Dateien sind im Ordner `OLD_DATA` unter dem jeweiligen Kapitel zu finden.  
+
+Dieses repository ist nicht dafür gedacht in diesem Zustand geklont und ausgeführt zu werden. Es existiert nur zur Sammlung meiner bisherigen Arbeit.
