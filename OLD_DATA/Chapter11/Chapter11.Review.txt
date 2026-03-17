@@ -1,0 +1,111 @@
+// 09/03/2026
+// Chapter11.Review.txt
+// Review
+
+[1] Why don't we "just" use a commercial or open-source library directly?
+Because it would overcomplicate the topics and basic principles that Chapters 10-14 are attemting to teach, by introducing an overwhelming amount of implementation details and messy technicalitites.
+
+[2] About how many classes from our graphics interface library do you need to do simple graphics output?
+About three. Two if you don't want to output any shapes.
+First 'Application' to get indirect access to Qt's facilities, then 'Simple_window' to open a window.
+And lastly (and somewhat optionally) any object that inherits from 'Shape', such as 'Rectangle' or 'Polygon'.
+
+[3] What are the header files needed to use the graphics interface library?
+'Graph.h' and 'Simple_window.h'. Any additional header files are included indirectly by those two.
+These include 'Window.h', 'Point.h', 'std_lib_facilities.h', etc..
+
+[4] What classes define closed shapes?
+- 'Polygon'
+- 'Closed_polyline'
+- 'Rectangle'
+- 'Circle'
+- 'Ellipse'
+
+[5] Why don't we just use 'Line' for every shape?
+This wouldn't be very practical. In theory it's possible and it would probably drastically reduce the file dependencies for drawing shapes.
+But all of this would come at the cost of completely ruining the library's interface, by making otherwise very simple operations such as drawing a circle incredibly labor intensive.
+
+[6] What do the arguments to 'Point' indicate?
+An 'x' and a 'y' coordinate either on the screen, in a window, in an image, etc..
+
+[7] What are the components of 'Line_style'?
+- An int value 's', which holds an enum value 'Line_style_type', which defines a line either as 'solid', 'dash'ed, 'dot'ted, etc..
+- An int value 'w', which defines a line by a width of 'w' (w = 1 by default).
+
+[8] What are the components of 'Color'?
+- An int value 'c', which lets you pick from a predefined palette of color values in the range of 0 to 255.
+- A struct value 'rgb_color', which holds three int values: 'r', 'g', and 'b', for red, green, and blue values in the range of 0 to 255.
+- An enum 'Color_type' 'ct', which holds a small list of named colors, and, if the 'Color' value is defined by 'c' or 'rgb_color', the values 'palette_index' and 'rgb'.
+
+[9] What is RGB?
+Any visible color can be put together using a combination of red, green, and blue values.
+Through the Qt library, a pixel on the screen is able to be colored using such an RGB value.
+
+[10] What are the differences between two 'Line's and a 'Lines' containing two lines?
+While the two 'Line' objects can be customized independantly with different 'Color', 'Line_style', and/or visibility traits, every line in the 'Lines' object is forced to share the same properties.
+
+[11] What properties can you set for every 'Shape'?
+- 'Color'
+- 'Line_style'
+- visibility
+- parent window
+
+[12] How many sides does a 'Closed_polyline' defined by five 'Point's have?
+Five, because the last 'Point' of a 'Closed_polyline' will always connect back to the first.
+
+[13] What do you see if you define a 'Shape' but don't attach it to a 'Window'?
+If there were any previously attached shapes, you would see those in the window, excluding the unattached 'Shape' of course.
+Otherwise there would just be an empty window (and a "next" button if it's a 'Simple_window').
+
+[14] How does a 'Rectangle' differ from a 'Polygon' with four 'Point's (corners)?
+The 'Rectangle' can't use 'add()' to define any additional 'Point's, because that would make it invalid. A 'Polygon' can.
+
+[15] How does a 'Polygon' differ from a 'Closed_polyline'?
+It is not allowed for two lines in a 'Polygon' to intersect, this will cause an exception to be thrown.
+For a 'Closed_polyline', that isn't an issue.
+
+[16] What's on top: fill or outline?
+Outline.
+
+[17] Why didn't we bother defining a 'Triangle' class (after all, we did define Rectangle)?
+Most likely because a triangle isn't as common as rectangles as far as shapes go.
+
+[18] How do you move a 'Shape' to another place in a 'Window'?
+By calling the 'Shape' member function 'move(x, y)'; x being the difference to the new x-coordinate and y being the difference to the new y-coordinate (delta) for the top left of the 'Shape'.
+
+[19] How do you label a 'Shape' with a line of text?
+By defining a 'Text' object using a 'Point' that is somewhere near the 'Shape'
+
+[20] What properties can you set for a text string in a 'Text'?
+Font, font size, color, visibility, parent window, and position. Also of course the string contents, i.e., the text to display.
+
+[21] What is a font and why do we care?
+A font is the style in which a text is displayed. Some fonts are consider professional, others more casual or even silly.
+We care because the impression our programs make is important to us.
+
+[22] What is 'Vector_ref' for and how do we use it?
+'Vector_ref' provides a way of handling named objects alongside unnamed objects. Its operations are very similar to those of 'std::vector', though a bit more limited.
+'Vector_ref' uses 'std::unique_ptr's to store such unnamed objects, while still remaining safe to use without having to worry about memory safety.
+In short, it allows users to use pointers without knowing what that even is yet.
+
+[23] What is the difference between a 'Circle' and an 'Ellipse'?
+An 'Ellipse' is built using the distance from its center to directions x and y. A 'Circle' occurs when those distances are equal. 
+Every 'Circle' is also an 'Ellipse', but not every 'Ellipse' is a 'Circle'.
+
+[24] What happens if you try to display an 'Image' given a file name that doesn't refer to a file containing an image?
+Unlike the usual console applications, the program won't terminate if it encounters such an error.
+It will simply print out some text including the file name, where the Image was supposed to be drawn in the 'Window'.
+Example text:
+	cannot open "img.jpg"
+
+[25] How do you display part of an 'Image'?
+You use the 'set_mask(P, w, h)' function.
+Its arguments are 'Point P', which defines a 'Point' inside the 'Image' from where to draw.
+'int w', which defines the width of the part of the 'Image' you'd like to display.
+And 'int h', which defines the height of the part of the 'Image' you'd like to display.
+
+[26] How do you scale an Image?
+You use the 'scale(w, h, keep_aspect_ratio)' function.
+Its arguments are 'int w', which defines the width you'd like to scale the 'Image' up/down to.
+'int h', which defines the height you'd like to scale the 'Image' up/down to.
+And 'bool keep_aspect_ratio', which determines whether the aspect ratio of the 'Image' is mutable or not. By default it's set to 'false', and one may omit this argument if this is desired.
