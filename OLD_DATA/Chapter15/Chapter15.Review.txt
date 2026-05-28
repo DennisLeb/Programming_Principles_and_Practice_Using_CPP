@@ -1,0 +1,83 @@
+// 28/05/2026
+// Chapter15.Review.txt
+// Review
+
+[1] Why do we need data structures with varying numbers of elements?
+Because it simplifies working with large amounts of data, which is very common with professional applications/systems.
+Some tasks even require you to account for an uncertain amount of data, making dynamic allocation a necessity (e.g. vector).
+
+[2] What four kinds of storage do we have for a typical program?
+- Stack memory
+- Heap (free store) memory
+- Static memory
+- Code/Text storage
+
+[3] What is the free store? What other name is commonly used for it? What operators support it?
+The heap includes all memory that your system can spare for use in a program. 
+You have to 'ask' for a defined size of memory using the 'new' operator/key word, to aquire it from the heap.
+Once you're done using that memory, you must give it back to your system using the 'delete' key word, otherwise you'd create a memory leak.
+The '*' (pointer) type is used to refer to heap-allocated memory.
+The '*' (dereference) operator is used to access the value stored at a pointed-to address.
+
+[4] What is a pointer?
+A pointer is a data type, which holds the memory address of some value.
+It must know the type of value it points to (e.g. int*, char*, etc.).
+
+[5] What is a dereference operator?
+Since a pointer only stores the address of an object, it can't be used as an object itself, i.e., printing a pointer would output a memory address, not a value.
+Something must first be done to a pointer variable to access the value at the stored address. The dereference operator ('*') serves that purpose.
+
+[6] What is an address? How are memory addresses manipulated in C++?
+To make efficient use of a system's memory, every memory 'location' has an address, which data can be read from or written to, if a program knows the address.
+A C++ developer doesn't know where exactly their program's data will be stored when using heap memory, the system decides that based on the size of the request and the state of its memory (in use or free).
+Once a bunch of memory has been allocated though, a programmer may read from or write to that address, free it (give it back to the system), or allocate even more memory.
+You have to be careful about memory overflow however. If you exceed the size of your allocated memory, you might overwrite some other ongoing process or important data on the system.
+
+[7] What information about a pointed-to object does a pointer have? What useful information does it lack?
+A pointer knows only the type and address of a pointed-to object. It lacks all information about the value of the object, or the size of an allocated array.
+
+[8] What can a pointer point to?
+- To allocated single instances of a specified type.
+- To allocated arrays of a specified type.
+- To non-allocated variables of a specified type.
+- To nothing (nullptr).
+
+[9] What is a leak?
+A memory leak occurs when some heap memory has been allocated using 'new', but is never returned to the system using 'delete'.
+
+[10] What is a resource?
+A resource is some component, e.g. of a class, that firstly has to be aquired and then returned after use.
+
+[11] What is another term for "free store"?
+The heap.
+
+[12] How can we initialize a pointer?
+If the value which it should point to is available/allocated, initialize to its address.
+Otherwise initialize to 'nullptr'.
+
+[13] What is a null pointer? When do we need to use one?
+A null pointer (nullptr) is a kind of placeholder for pointer variables. It can be used as an 'empty' initializer value or as an error value for function returns.
+
+[14] When do we need a pointer (instead of a reference or a named object)?
+You need a pointer when dynamically allocating heap memory.
+
+[15] What is a destructor? When do we need one?
+A destructor is a class/struct member that gets called whenever an object goes out of scope (or it gets called directly).
+It's job is to 'clean up' after a class instance, this means returning all aquired resources.
+
+[16] When do we want a 'virtual' destructor?
+Whenever a derived class aquires additional resources, which its base class doesn't, it's important to override the base class destructor to clean up everything.
+
+[17] How are destructors for members called?
+Either when an instance of its class goes out of scope or if the destructor is called directly.
+
+[18] How do we access a member of a class through a pointer?
+By using the '->' operator instead of the '.' operator.
+Alternatively you could dereference a pointer using the '*' operator and then use the '.' operator.
+
+[19] What is a doubly-linked-list?
+It's a data structure in which every element contains a pointer to the preceding as well as the succeeding element in the list.
+
+[20] What is 'this' and when do we need to use it?
+The 'this' pointer is useful whenever we need to access the current class instance inside of member data.
+It just points to the current class object, in whose member it was called, e.g. through a member function.

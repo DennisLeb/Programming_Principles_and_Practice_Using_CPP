@@ -1,0 +1,94 @@
+// 19/03/2026
+// Chapter12.Review.txt
+// Review
+
+[1] What is an application domain?
+An application domain consists of fundamental application concepts, and their implementation facilities, presented through a library or code-base.
+Different application domains will be accompanied by different design concepts and requirements, e.g., a graphics library, a weather application, etc..
+
+[2] What are ideals for naming?
+Descriptiveness and logical distinction. Providing non-verbose yet precise explanations of, e.g., a method's functionality right inside of its name.
+
+[3] What can we name?
+Namespaces, classes, functions, variables and more.
+
+[4] What services does a 'Shape' offer?
+'Shape' is an abstract class, that holds all of the essential data members required for its child classes.
+Due to this derived classes, such as 'Rectangle' or 'Circle' only have to deal with members that set them apart as a 'Shape'.
+
+[5] How does an abstract class differ from a class that is not abstract?
+You can't make objects from abstract classes directly because what they describe is not meant to represent anything concrete.
+They are designed to hold fundamental properties for fundamental concepts, which, without further concretization by derived classes, would be nonsensical to implement.
+
+[6] How do you make a class abstract?
+The easiest way is by declaring one or many pure virtual member functions.
+Doing this will make your compiler prevent you from making objects of that now abstract class.
+Alternatively, you could also make all class constructors private.
+
+[7] What is controlled by access control?
+Access control determines who gets to call/access a class's members.
+Whether that be only the class itself, itself and its child classes, or anyone.
+
+[8] What good can it do to make a data member 'private'?
+By restricting access to sensitive class data, you can ensure the data's integrity and that it won't be altered in any unforeseen ways, potentially causing tough-to-spot logic errors.
+
+[9] What is a virtual function and how does it differ from a non-virtual function?
+A base class's virtual functions may be overriden by its derived classes, changing function behaviour entirely (Run-time Polymorphism).
+Non-virtual functions may not be altered in such a way.
+
+[10] What is a base class?
+It's a class which is designed as a foundation for one or many derived classes (often, not always, making it an abstract class).
+
+[11] What makes a class derived?
+When a new class is defined to inherit from another, that's a derived class.
+This can be achieved using the following notation:
+	class D : public B {...}
+
+[12] What do we mean by object layout?
+How an object is laid out in memory.
+For the example of derived class D, its data members would be added on top of base class B's members on the stack.
+
+[13] What can you do to make a class easier to test?
+Be consistent in not only naming of its members, but also in style.
+E.g., have a set order of arguments if multiple member functions share similar ones, i.e., first width then height, or first bools then ints etc..
+
+[14] What is an inheritance diagram?
+It visually represents the relationship between one or many base classes and its/their derived classes.
+
+[15] What is the difference between a 'protected' member and a 'private' one?
+A 'private' class member is only accessible to the class it was declared in.
+A 'protected' class member is accessible to the class it was declared in and every subsequent child class.
+
+[16] What members of a class can be accessed from a class derived from it?
+Every member that is declared as either 'protected' or 'public'.
+
+[17] How does a pure virtual function differ from other virtual functions?
+Firstly, a class that has at least one pure virtual function is therefore an abstract class, unlike "regular" virtual functions which can exist in concrete classes.
+A pure virtual function requires an override in a derived class, otherwise the derived class will still be considered abstract and will prohibit you from making any object of that class's type.
+
+[18] Why would you make a member function virtual?
+'Run-time Polymorphism' is useful for defining a class's behavior not only by its base class, but also special cases that may apply for a derived class, while still providing a default (unless we're talking about a pure virtual function).
+
+[19] Why would you not make a member function virtual?
+There certainly are cases in which some base behavior is required for derived classes, otherwise there'd be no point in making a base class for them at all.
+When one can be absolutely certain that a function will behave sensibly for any child classes, there isn't a need for making it virtual.
+
+[20] Why would you make a virtual member function pure?
+For cases in which each derived (concrete) class has to have its own overridden version of that function, but there isn't a default behaviour, in the form of a non-pure virtual function, that would make sense.
+
+[21] What does overriding mean?
+The 'override' keyword is used in derived classes to define unique behavior for a virtual function, that was declared in some base class, thereby ignoring priorly defined behavior.
+
+[22] Why should you always suppress copy operations for a class in a class hierarchy?
+Just because two derived classes share a common base class, doesn't make it sensible for them to be copyable into one another.
+Data members would be lost and others put where they don't belong, producing odd and unpredictable behavior.
+
+[23] How does interface inheritance differ from implementation inheritance?
+Interface inheritance means that any place that expects a base class type, e.g. a function, will also accept a derived class type of that base.
+Implementation inheritance refers to the inheritance of base class data members, i.e. 'public' or 'protected' member variables and functions.
+
+[24] What is object-oriented programming?
+OOP is a style of programming that features a set of design principles:
+	- Encapsulation			-> access control using the 'public', 'protected', and 'private' keywords (in the case of C++)
+	- Inheritance			-> the ability to base class properties on other classes (superclasses and subclasses)
+	- Run-Time Polymorphism	-> dynamic determination of class member function behavior at run-time (for subclasses)
