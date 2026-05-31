@@ -1,0 +1,47 @@
+// 29/05/2026
+// Chapter16.Review.txt
+// Review
+
+[1] What does "Caveat emptor!" mean?
+"Let the buyer beware!"
+
+[2] What is an array?
+That depends on whether "array" refers to a 'std::array' or to an allocated array on the heap.
+Firstly, both are contiguous sequences of elements.
+A 'std::array' is a data structure that stores a specified amount of values and the amount itself (which must be known at compile-time) in stack or static memory, depending on its declaration. 'std::array' does NOT produce a pointer.
+An allocated array must first be allocated on the heap (using 'new') and can then be accessed by a pointer of the correct type. To avoid memory leaks it must be deallocated after serving its purpose (using 'delete').
+
+[3] How do you copy an array?
+By using the assignment operator ('=') for 'std::array'.
+Otherwise by using the 'memcpy()' or 'strcpy()' functions, which is rather error-prone by comparison.
+
+[4] How do you initialize an array?
+By defining an initializer list inside of curly brackets.
+For 'std::array' you must also specify a size, as it doesn't deduce the number of elements.
+
+[5] When should you prefer a pointer argument over a reference argument. Why?
+If a function should perform an action based on a 'nullptr' argument, use a pointer.
+Otherwise use a reference.
+This is because you can always expect a reference argument to be initialized to some value, while with a pointer you must always consider the possibility of a 'nullptr' argument, requiring verbose precautions.
+
+[6] When should you prefer a 'std::span' over a pointer? Why?
+In most cases, since it avoids having to allocate and deallocate memory yourself and provides you with a size value, as well as several other helpful functions for very little to no additional cost in efficiency.
+
+[7] How does 'std::array' differ from a built-in array?
+'std::array' doesn't contain a pointer, it's stored in either static or stack storage instead of the heap and it requires a size argument for initialization.
+
+[8] What good is range checking?
+Range checking avoids some very nasty types of errors. It prevents overwriting/reading unrelated data, which can be troublesome to spot on your own during debugging.
+
+[9] What information do you need to do range checking?
+You need the size of the array/data structure you're working with, as well as the address of the first element (otherwise you wouldn't know from where to count).
+
+[10] What good can a 'not_null' do?
+It prevents 'nullptr' arguments from reaching code you do not control/haven't implemented yourself, where you can't perform manual sanity checks.
+
+[11] What is a C-style string?
+A C-style string is a null-terminated array of characters. It's accessed by a 'char*', which points to the first element of the string.
+Due to being null-terminated, it needs one additional size unit to hold the null-terminator ('\0').
+
+[12] What is a palindrome?
+A palindrome is a word, which, spelled backwards, is identical to its initial spelling. Examples are "Anna", "Deified" or "Rotator".
