@@ -1,0 +1,113 @@
+// 01/06/2026
+// Chapter17.Review.txt
+// Review
+
+[1] What is the default meaning of copying for class objects?
+By default a copy of an object copies all members of the original, including pointers.
+
+[2] When is the default meaning of copying class objects appropriate? Inappropriate?
+If a copyable class has no pointer member variables, the default way of copying is fine.
+Otherwise you'd share ownership of that pointer member, which could produce unexpected results when overwriting the pointed-to value.
+
+[3] What is a copy constructor?
+When creating any type a default copy constructor is made, which simply copies all member variables from an existing object to the one being initialized/constructed.
+It can be manually defined to accommodate to the specific needs of a type.
+
+[4] What is a copy assignment?
+It's used when the assignment operator ('=') is used to copy into an existing object of a type.
+Just like the copy constructor a default behavior is available, which can be overridden.
+
+[5] What is a move constructor?
+When an object is made inside of a scope (e.g. a function scope) which is about to expire and that object will be returned to some caller, it's inefficient to perform a copy operation, since the initial object is about to be destroyed anyways.
+If the caller initializes another object of the same type, a move constructor can be called, which, instead of performing an expensive copy, will simply 'steal' the pointer from the about-to-expire object.
+
+[6] What is a move assignment?
+In principle it's just like the move constructor.
+It differs because it only applies to already existing objects whose values will be changed.
+
+[7] What is a default constructor?
+It's a type of constructor that doesn't need any arguments to initialize an object.
+They're available for types with sensible default values, but they can also be deleted if needed.
+
+[8] What is the difference between a copy constructor and a move constructor?
+A copy constructor will leave the object whose values were copied intact, almost as if no operation was performed.
+A move constructor expects the argument object to expire and will prepare it for destruction.
+
+[9] What is the difference between a copy constructor and a copy assignment?
+A copy constructor initialized a new object from its argument object.
+A copy assignment only changes the values of an already existing object.
+
+[10] What is a shallow copy? What is a deep copy?
+A shallow copy will result in pointers/references being shared between objects.
+A deep copy will create separate pointed-to objects and a separate pointer/reference to them.
+
+[11] How does the copy of a 'vector' compare to its source?
+When a 'vector' is copied, a deep copy is performed, meaning that independant pointers will point to independant objects in memory for both 'vector's.
+
+[12] What is the point of copy elision?
+A copy elision means that the copy of an object will be omitted because a move operation makes more sense.
+The point is that a move is cheaper in performance cost than a full copy.
+
+[13] What are the essential operations for a class?
+- Constructors from one or more arguments
+- A default constructor
+- A copy constructor
+- A copy assignment
+- A move constructor
+- A move assignment
+- A destructor
+
+[14] What is an 'explicit' constructor?
+If a type has a constructor that only takes a single argument, a constructor marked as 'explicit' will prevent the type and the argument type from being used interchangeably.
+Otherwise it could result in strange initializations, assignments, or function calls.
+
+[15] When would you prefer a constructor not to be 'explicit'?
+When a type is simple enough to treat it the same as its construction argument type.
+
+[16] How do you define traversal for a container?
+By overloading the subscript operator ('[]') twice.
+Once for read-only and once for read-and-write.
+
+[17] What operations may be invoked implicitly for a class object?
+- Default construction
+- Copy construction
+- Copy assignment
+- Move construction (by copy elision)
+- Move assignment (by copy elision)
+- Destruction
+
+[18] What operators are often user-defined?
+- Arithmetic operators ('+', '-', '*', '/', '%')
+- IO operators ('>>', '<<')
+- Constructors from one or more arguments
+- Essential operations (as seen in [13])
+
+[19] What is the rule of zero?
+If a type doesn't need essential operations, don't define any.
+
+[20] What is the rule of all?
+If a type needs any one essential operation, define all.
+
+[21] Why don't we just always define a 'vector' with a large enough size for all eventualities?
+Because most estimations of 'large enough' are unreliable and even if they weren't you'd still have to keep track of how much of the pre-allocated memory is in use to prevent overflow.
+
+[22] Which 'vector' operations can change the size of a 'vector' after construction?
+- 'push_back()'
+- 'resize()'
+- 'reserve()'
+
+[23] What is the difference between 'reserve()' and 'resize()'?
+All 'reserve()' does is allocate new memory before resize() initializes it.
+
+[24] How much spare space do we allocate for a new 'vector'?
+When default constructing, none.
+When constructing with an 'int i' argument, i byte.
+Spare space only will be allocated once a 'vector's size is increased post-construction, because then it's much more likely that it will be increased again.
+
+[25] When must we copy vector elements to a new location?
+When 'reserve()' allocates new space a new array must be created in memory, because we can't append to the existing array.
+After that, all values will be copied from the old to the new location in memory.
+Also whenever a copy operation is performed.
+
+[26] What is the value of a 'vector' after a copy?
+In the copy 'vector' the same as before, except for the pointer member and the space member which will be set equal to the size member.
