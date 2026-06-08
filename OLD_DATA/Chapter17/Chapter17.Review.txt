@@ -97,7 +97,7 @@ Because most estimations of 'large enough' are unreliable and even if they weren
 - 'reserve()'
 
 [23] What is the difference between 'reserve()' and 'resize()'?
-All 'reserve()' does is allocate new memory before resize() initializes it.
+All 'reserve()' does is allocate new memory before 'resize()' initializes it.
 
 [24] How much spare space do we allocate for a new 'vector'?
 When default constructing, none.

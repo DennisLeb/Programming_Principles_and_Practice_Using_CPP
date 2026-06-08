@@ -1,0 +1,66 @@
+// 08/06/2026
+// Chapter18.Review.txt
+// Review
+
+[1] Why would we want to have different element types for different 'vectors'?
+Because otherwise it would severely limit a 'vector's use cases and you'd have to write a separate 'vector' for every single type you encounter.
+
+[2] What is a template?
+A template enables you to make classes or functions applicable for several types at once.
+When using a template class for example the compiler will generate the class with the actual type at compile-time, replacing the template parameter.
+
+[3] What is generic programming?
+It's when you write code that is applicable to various types, which all must share some specified set of requirements.
+
+[4] How does generic programming differ from object-oriented programming?
+While OOP offers inheritance and other mechanisms to operate on concrete classes/types, generic programming allows you to write code for the variable application of those types.
+
+[5] What is a concept?
+A concept is used to define concrete requirements of a template type, i.e., restricting usage of types to only those with the traits specified in a concept.
+
+[6] What benefits do we get from the use of concepts?
+Concepts allow you to directly specify which template types are viable for a class or function.
+They deny types whose traits don't match the concept traits, making debugging easier.
+
+[7] Name four standard-library concepts.
+- 'semiregular<T>()': A 'T' can be copied, moved and swapped.
+- 'integral<T>()': A 'T' is an integral type (like 'int').
+- 'range<C>()': 'C' can hold elements and be accessed as a ['begin()':'end()') sequence.
+- 'equality_comparable<T>()': We can compare two 'T's for equality using '==' to get a Boolean result.
+
+[8] How does 'resize()' differ from 'reserve()'?
+All 'reserve()' does is allocate new memory before 'resize()' initializes it.
+
+[9] What is a resource? Define and give examples.
+A resource is something that first needs to be aquired, and after using it needs to be returned for redistribution.
+For example:
+- Heap memory
+- File handles
+- Windows
+...
+
+[10] What is a resource leak?
+If a resource was aquired and never returned, there is a resource leak.
+This can be catastrophic for program performance and can result in undefined behavior.
+
+[11] List three resource-management guarantees.
+- Basic guarantee: Will never leak resources in case of a 'throw' or any other sudden scope termination.
+- Strong guarantee: Basic guarantee + won't modify any non-local values passed into the scope.
+- No-throw gurantee: Will never 'throw' an exception.
+
+[12] How can the use of a built-in-pointer lead to a resource leak? Give examples.
+- A pointer	which was used to initialize some memory never gets 'delete'd.
+- A pointer which was used to initialize some memory has its address value changed.
+- A pointer which was used to initialize some memory goes out of scope.
+
+[13] What is RAII? What problem does it address?
+RAII stands for 'Resource Aquisition is Initialization'.
+When a resource goes out of scope and is not managed by an initialized object, it's leaked.
+RAII solves this issue by making resource aquisition and return implicit by using a class's constructor and destructor.
+
+[14] What is 'unique_ptr' good for?
+By using a 'unique_ptr' to manage memory, you get the benefit of implicitly releasing all aquired resources in case of sudden scope termination, i.e., it's destructor does the heavy lifting.
+
+[15] What is 'shared_ptr' good for?
+If a resource needs to be handled by more than one object, a 'shared_ptr' is used.
+It keeps track of how many places have access to a resource and only returns that resource when the last handler is destroyed.
